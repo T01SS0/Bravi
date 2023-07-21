@@ -7,8 +7,8 @@ services:
     ports:
       - 4200:4200
     volumes:
-      - ./angular:/project
-      - /project/node_modules
+      - ./angular:/var/www/html/
+      - ./angular/node_modules:/var/www/html/node_modules
   app:
     container_name: php-apache
     image: cloudsigma.com/php
