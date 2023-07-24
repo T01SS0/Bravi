@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Lista de Contatos</h3>
+                        <div class="card-toolbar">
+                            <button class="btn btn-primary"
+                                routerLink="/contato">
+                                <i class="material-icons">person_add</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Telefone</th>
+                                    <th>Whatsapp</th>
+                                    <th>
+                                        Ações
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let contato of contatos">
+                                    <td>
+                                        <button class="btn btn-info btn-sm" routerLink="/contato/{{contato.id}}">
+                                            <i class="material-icons">person_search</i>
+                                        </button>
+                                    </td>
+                                    <td>{{contato.nome}}</td>
+                                    <td>{{contato.telefone}}</td>
+                                    <td>{{contato.whatsapp}}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" (click)="excluirContato(contato.id)">
+                                            <i class="material-icons">person_remove</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="contatos.length == 0">
+                                    <td>Nenhum contato encontrado!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

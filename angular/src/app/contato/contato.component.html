@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{{application}}</h3>
+                        <div class="card-toolbar">
+                            <button class="btn btn-primary"
+                                routerLink="/dashboard">
+                                <i class="material-icons">home</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <mat-stepper orientation="vertical" [linear]="true" #stepper>
+                            <mat-step [stepControl]="firstFormGroup">
+                                <form [formGroup]="firstFormGroup">
+                                    <ng-template matStepLabel>Nome ou Apelido para o contato</ng-template>
+                                    <mat-form-field>
+                                        <mat-label>Nome / Apelido</mat-label>
+                                        <input matInput
+                                            placeholder="Ex: Leonardo Silva"
+                                            formControlName="nome" required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperNext>Proximo</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="secondFormGroup">
+                                <form [formGroup]="secondFormGroup">
+                                    <ng-template matStepLabel>Numero de telefone</ng-template>
+                                    <mat-form-field>
+                                        <mat-label>Telefone</mat-label>
+                                        <input matInput
+                                            formControlName="telefone"
+                                            placeholder="Ex: (17) 99165-6470"
+                                            required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Voltar</button>
+                                        <button mat-button matStepperNext>Continuar</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="threeFormGroup">
+                                <form [formGroup]="threeFormGroup">
+                                    <ng-template matStepLabel>WhatsApp</ng-template>
+                                    <mat-form-field>
+                                        <mat-label>WhatsApp</mat-label>
+                                        <input matInput
+                                            formControlName="whatsapp"
+                                            placeholder="Ex: (17) 99165-6470"
+                                            required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Voltar</button>
+                                        <button mat-button (click)="salvarContato()" *ngIf="!carregando">Continuar</button>
+                                        <mat-spinner *ngIf="carregando"></mat-spinner>
+                                    </div>
+                                </form>
+                            </mat-step>
+                        </mat-stepper>
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

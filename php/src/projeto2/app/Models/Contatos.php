@@ -10,6 +10,6 @@ class Contatos extends Model
     use HasFactory;
     protected $table = 'contatos';
 
-    protected $fillable = ['nome', 'email','telefone','whatsapp'];
+    protected $fillable = ['nome','telefone','whatsapp'];
 
 }

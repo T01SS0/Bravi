@@ -17,7 +17,6 @@ class ApiController extends Controller
     {
         $contato = new Contatos;
         $contato->nome = $request->nome;
-        $contato->email = $request->email;
         $contato->telefone = $request->telefone;
         $contato->whatsapp = $request->whatsapp;
         $contato->save();
@@ -45,8 +44,7 @@ class ApiController extends Controller
         if (Contatos::where('id', $id)->exists()) {
             $contato = Contatos::find($id);
             $contato->nome = is_null($request->nome) ? $contato->nome : $request->nome;
-            $contato->email = is_null($request->email) ? $contato->email : $request->email;
-            $contato->telefone = is_null($request->telefone) ? $contato->telefone : $request->telefone;
+             $contato->telefone = is_null($request->telefone) ? $contato->telefone : $request->telefone;
             $contato->whatsapp = is_null($request->whatsapp) ? $contato->whatsapp : $request->whatsapp;
             $contato->save();
 
